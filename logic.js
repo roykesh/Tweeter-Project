@@ -28,23 +28,6 @@ const Tweeter = () => {
         return _posts
     }
 
-    // const uniqueId = arr => {
-    //     if (arr.length === 0) {
-    //         return 1
-    //     } else {
-    //         return arr.length + 1
-    //     }
-    // }
-
-    // const addPost = text => {
-    //     _posts.push({
-    //         text: text,
-    //         id: `p${uniqueId(_posts)}`,
-    //         comments: []
-    //     })
-    // }
-
-    // simple addPost
     const addPost = text => {
         postCount++
         _posts.push({
@@ -54,25 +37,16 @@ const Tweeter = () => {
         })
     }
 
-    const removePost = postID => {
-        //parseInt(postID)
+    const findPostID = ID => {
         for (postIndex in _posts) {
-            _posts[postIndex].id === postID ?
-                _posts.splice(postIndex, 1) : null
+            if (_posts[postIndex].id === ID) {
+                return postIndex
+            }
         }
     }
 
-    // const addComment = (text, postID) => {
-    //     for (postIndex in _posts) {
-    //         _posts[postIndex].id === postID ?
-    //             _posts[postIndex].comments.push({
-    //                 id: `c${uniqueId(_posts[postIndex].comments)}`,
-    //                 text: text
-    //             }) : null
-    //     }
-    // }
+    const removePost = postID => _posts.splice(findPostID(postID), 1)
 
-    // simple addComment
     const addComment = (text, postID) => {
         commentCount++
         for (postIndex in _posts) {
@@ -85,39 +59,31 @@ const Tweeter = () => {
     }
 
     const removeComment = (postID, commentID) => {
-        let localCommentArray = _posts[postIndex].comments
-        for (postIndex in _posts) {
-            //console.log(postIndex)
-            if (_posts[postIndex].id === postID) {
-                console.log(_posts[postIndex].id) // p2
-                for (commentIndex in _posts[postIndex].comments) {
-                    console.log(commentIndex)
-                    console.log(commentID)
-                    //console.log(localCommentArray[commentIndex].id)
-                    if (localCommentArray[commentIndex].id === commentID) {
-                        console.log(localCommentArray[commentIndex].id)
-                        //localCommentArray[commentIndex].splice(commentIndex, 1)
-                    } else { console.log(commentIndex) }
-                }
-            }
+        for (commentIndex in _posts[findPostID(postID)].comments) {
+            _posts[findPostID(postID)].comments[commentIndex].id === commentID ?
+                _posts[findPostID(postID)].comments.splice(commentIndex, 1) : null
         }
     }
+
+
 
     return {
         getPosts: getPosts,
         addPost: addPost,
+        findPostID: findPostID,
         removePost: removePost,
         addComment: addComment,
         removeComment: removeComment
     }
 }
 
+
 const tweeter = Tweeter()
 
 tweeter.addPost("This is my own post!")
 //console.log(tweeter.getPosts())
 
-// tweeter.removePost("p1")
+//tweeter.removePost("p1")
 // console.log(tweeter.getPosts())
 
 tweeter.addComment("Damn straight it is!", "p3")
