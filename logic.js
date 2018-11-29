@@ -68,6 +68,7 @@ const Tweeter = () => {
 
 
     return {
+        posts: _posts,
         getPosts: getPosts,
         addPost: addPost,
         findPostID: findPostID,
@@ -78,17 +79,18 @@ const Tweeter = () => {
 }
 
 
-const tweeter = Tweeter()
+// const tweeter = Tweeter()
 
-tweeter.addPost("This is my own post!")
-//console.log(tweeter.getPosts())
+// tweeter.addPost("This is my own post!")
+// //console.log(tweeter.getPosts())
 
-//tweeter.removePost("p1")
+// //tweeter.removePost("p1")
+// // console.log(tweeter.getPosts())
+
+// tweeter.addComment("Damn straight it is!", "p3")
+// tweeter.addComment("Second the best!", "p2")
+// //console.log(tweeter.getPosts())
+
+// tweeter.removeComment("p2", "c6")
 // console.log(tweeter.getPosts())
 
-tweeter.addComment("Damn straight it is!", "p3")
-tweeter.addComment("Second the best!", "p2")
-//console.log(tweeter.getPosts())
-
-tweeter.removeComment("p2", "c6")
-console.log(tweeter.getPosts())
