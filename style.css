@@ -17,13 +17,13 @@ body{
 
 #header{
     grid-area: h;
-    background-color: #9ed3f7;
+    background-color: #b8d9f0;
 }
 
 #input{
     grid-area: i;
     padding: 10px;
-    font-size: 1.5vw;
+    font-size: 2vw;
 }
 
 #posts{
@@ -54,8 +54,7 @@ body{
 }
 
 .post-text{
-    font-weight: bold;
-    font-size: 5vw
+    font-weight: bold
 }
 
 .comments{
@@ -67,8 +66,9 @@ body{
     cursor: pointer;
     color: #ecf0f1;
     background-color: #e74c3c;
-    display: inline-block;
+    display: block;
     padding: 5px;
+    margin: 10px;
     border-radius: 3px;
     font-size: 0.8em;
 }

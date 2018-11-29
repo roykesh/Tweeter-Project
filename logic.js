@@ -24,15 +24,13 @@ const Tweeter = () => {
         }
     ]
 
-    const getPosts = () => {
-        return _posts
-    }
+    const getPosts = () => _posts
 
     const addPost = text => {
         postCount++
         _posts.push({
             text: text,
-            id: `p${postCount}`,
+            id: `p${postCount}`, // set postCount to zero for fresh test
             comments: []
         })
     }
@@ -65,8 +63,6 @@ const Tweeter = () => {
         }
     }
 
-
-
     return {
         posts: _posts,
         getPosts: getPosts,
@@ -93,4 +89,3 @@ const Tweeter = () => {
 
 // tweeter.removeComment("p2", "c6")
 // console.log(tweeter.getPosts())
-
