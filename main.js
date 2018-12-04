@@ -3,6 +3,7 @@ const renderer = Renderer()
 
 renderer.renderPosts(tweeter.getPosts())
 
+
 // Add post
 const post = function () {
     tweeter.addPost($('#input').val())
